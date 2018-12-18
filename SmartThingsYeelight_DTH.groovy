@@ -172,12 +172,10 @@ def reset() {
 //Send Command to Yeelight
 def transmit(yeelightCommand) {
     	def String ipaddr = DeviceLocalLan
-    	def port = 55443
     	def String hexIp = ipaddr.tokenize('.').collect {
         String.format('%02X', it.toInteger())
     	}.join()
-    	def String hexPort = String.format('%04X', port)
-    	def String myNetworkID = "${hexIp}:${hexPort}"
+    	def String myNetworkID = "${hexIp}:D893"
     	//log.debug "network ID: " + myNetworkID
     	device.deviceNetworkId = myNetworkID
 	def transmittedData = new physicalgraph.device.HubAction(yeelightCommand, physicalgraph.device.Protocol.LAN, myNetworkID)
