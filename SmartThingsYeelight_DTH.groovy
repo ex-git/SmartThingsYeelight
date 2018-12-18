@@ -9,8 +9,6 @@ metadata {
 		capability "Refresh"
 		capability "Actuator"
 		capability "Sensor"
-        	capability "Health Check"  //Needed for CONNECT APP compatibility
-        	capability "polling"  //Not sure if this is needed
 
 		command "reset"
         	command "refresh"
