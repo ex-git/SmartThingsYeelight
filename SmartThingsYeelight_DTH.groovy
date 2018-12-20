@@ -175,9 +175,7 @@ def transmit(yeelightCommand) {
     	}.join()
     	def String myNetworkID = "${hexIp}:D893"
     	//log.debug "network ID: " + myNetworkID
-    	device.deviceNetworkId = myNetworkID
 	def transmittedData = new physicalgraph.device.HubAction(yeelightCommand, physicalgraph.device.Protocol.LAN, myNetworkID)
-    	transmittedData.options = [type:'LAN_TYPE_CLIENT', protocol:'LAN_PROTOCOL_TCP']
 	log.debug "Sent " + transmittedData
     	sendHubCommand(transmittedData)
 }
